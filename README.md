@@ -15,8 +15,6 @@ Before you begin, make sure you have the following tools installed:
 
 **Server:** Next JS
 
-**Database:** SQLite
-
 ## Run Locally
 
 Clone the project
@@ -58,7 +56,7 @@ Here is an overview of the application's main sections and features:
 ### 2. **Add Invoice**
 
 - Form Fields (Client Name, Description, Quantity, Unit Price and Total Amount[Read Only] )
--  Zod Package was added for form validation.
+- Zod Package was added for form validation.
 
 ## Deployment
 
@@ -76,4 +74,4 @@ npm run build
 
 ```bash
 npm run start
-```# HIT-Assignment-Billing-System
+```
