@@ -39,8 +39,8 @@ export default function Home() {
 
   return (
     <div className="container mx-auto">
-      <p className="text-xl font-bold my-3">HIT Billing System - Invoice Management</p>
-      <div className="flex flex-col">
+      <p className="text-xl font-bold my-3 px-3">HIT Billing System - Invoice Management</p>
+      <div className="flex flex-col px-3">
         <div className="text-end">
           <button
             className="my-3 bg-blue-500 hover:bg-blue-600 transition-all p-2 rounded text-white"
