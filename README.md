@@ -1,6 +1,6 @@
 # Nextjs - Mini Billing System
 
-## Interview prompt document is attached [here](https://github.com/Sathyanarayanan-Dhanuskodi/hit-assessment/blob/main/docs/Interview%20Prompt.docx)
+## Next.js Developer Interview Assignment document is attached [here](https://github.com/gopitridentsqa/hit-assessment/main/docs/Billing_System_Mini.pdf)
 
 ## Prerequisites
 
@@ -22,13 +22,13 @@ Before you begin, make sure you have the following tools installed:
 Clone the project
 
 ```bash
-git clone https://github.com/Sathyanarayanan-Dhanuskodi/hit-assessment
+git clone https://github.com/gopitridentsqa/HIT-Assignment-Billing-System.git
 ```
 
 Go to the project directory
 
 ```bash
-cd hit-assessment
+cd HIT-Assignment-Billing-System
 ```
 
 Install dependencies
@@ -55,7 +55,7 @@ Here is an overview of the application's main sections and features:
 
 ### 2. **Add Invoice**
 
-- Displays a list of invoices with details such as their **Client Name**, **Total Ammount**, **Created Date** and **Delete** for each invoice.
+- Displays a list of invoices with details such as their **Client Name**, **Total Amount**, **Created Date** and **Delete** for each invoice.
 - An **Add Invoice** button allows you to add new invoice.
 - The **Delete** buttons next to each invoice allow you to remove invoice details.
 
@@ -63,20 +63,15 @@ Here is an overview of the application's main sections and features:
 
 To deploy the project in a production environment:
 
-1. Set `NODE_ENV=production`
-2. Install production dependencies by running:
+1. Install production dependencies by running:
 
-```bash
-npm ci --production
-```
-
-3. Build the project:
+2. Build the project:
 
 ```bash
 npm run build
 ```
 
-4. Start the application in production mode:
+3. Start the application:
 
 ```bash
 npm run start
