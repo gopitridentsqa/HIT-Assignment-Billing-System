@@ -1,6 +1,6 @@
 # Nextjs - Mini Billing System
 
-## Next.js Developer Interview Assignment document is attached [here](https://github.com/gopitridentsqa/hit-assessment/main/docs/Billing_System_Mini.pdf)
+## Next.js Developer Interview Assignment document is attached [here](https://github.com/gopitridentsqa/HIT-Assignment-Billing-System/blob/main/docs/Billing_System_Mini.pdf)
 
 ## Prerequisites
 
@@ -51,13 +51,14 @@ Here is an overview of the application's main sections and features:
 
 ### 1. **Home**
 
-- The home page features a placeholder screen with navigation links in the sidebar.
+1. Shows a list of invoices, with client name, total amount, created date, and delete option.
+2. The Add Invoice button allows you to create a new invoice.
+3. The Delete buttons next to each invoice allow you to remove invoice data.
 
 ### 2. **Add Invoice**
 
-- Displays a list of invoices with details such as their **Client Name**, **Total Amount**, **Created Date** and **Delete** for each invoice.
-- An **Add Invoice** button allows you to add new invoice.
-- The **Delete** buttons next to each invoice allow you to remove invoice details.
+- Form Fields (Client Name, Description, Quantity, Unit Price and Total Amount[Read Only] )
+-  Zod Package was added for form validation.
 
 ## Deployment
 
