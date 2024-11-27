@@ -2,13 +2,6 @@
 
 ## Next.js Developer Interview Assignment document is attached [here](https://github.com/gopitridentsqa/HIT-Assignment-Billing-System/blob/main/docs/Billing_System_Mini.pdf)
 
-## Prerequisites
-
-Before you begin, make sure you have the following tools installed:
-
-- **nvm** (Node Version Manager)
-- **git**
-
 ## Tech Stack
 
 **Client:** Next JS, Typescript
