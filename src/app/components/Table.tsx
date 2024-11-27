@@ -65,7 +65,7 @@ export default function TableWithPagination({
                   {row.clientName}
                 </td>
                 <td className="border border-gray-300 px-4 py-2">
-                  {row.quantity * row.unitPrice}
+                  {row.totalAmount || 0}
                 </td>
                 <td className="border border-gray-300 px-4 py-2">
                   {moment(row.createdAt).format('DD-MM-YYYY HH:mm:ss')}

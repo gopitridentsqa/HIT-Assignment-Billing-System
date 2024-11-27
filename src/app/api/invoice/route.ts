@@ -1,79 +1,96 @@
 export type TData = {
   clientName: string;
-  description: string;
-  quantity: number;
-  unitPrice: number;
+  rows: {
+    description: string;
+    quantity: number;
+    unitPrice: number;
+  }[];
+  totalAmount: number;
   createdAt: Date;
 };
 
 const data: TData[] = [
   {
-    clientName: "Client 1",
-    description: "Description 1",
-    quantity: 2,
-    unitPrice: 10,
-    createdAt: new Date(),
+    clientName: 'Client 1',
+    rows: [
+      {
+        description: '',
+        quantity: 20,
+        unitPrice: 5
+      }
+    ],
+    totalAmount: 100,
+    createdAt: new Date()
   },
   {
-    clientName: "Client 2",
-    description: "Description 2",
-    quantity: 3,
-    unitPrice: 15,
-    createdAt: new Date(),
+    clientName: 'Client 2',
+    rows: [
+      {
+        description: '',
+        quantity: 10,
+        unitPrice: 50
+      }
+    ],
+    totalAmount: 500,
+    createdAt: new Date()
   },
   {
-    clientName: "Client 3",
-    description: "Description 3",
-    quantity: 1,
-    unitPrice: 8,
-    createdAt: new Date(),
-  },
+    clientName: 'Client 3',
+    rows: [
+      {
+        description: '',
+        quantity: 3,
+        unitPrice: 10
+      }
+    ],
+    totalAmount: 30,
+    createdAt: new Date()
+  }
 ];
 
 export async function GET() {
   return Response.json(
     {
       success: true,
-      message: "Success",
-      data,
+      message: 'Success',
+      data
     },
     {
-      status: 200,
+      status: 200
     }
   );
 }
 
 export async function POST(req: Request) {
-  const { clientName, description, quantity, unitPrice } = await req.json();
+  const { clientName, rows, totalAmount } = await req.json();
 
-  if (!clientName || !description || !quantity || !unitPrice) {
+  if (!clientName) {
     return Response.json(
       {
         success: false,
-        message: "Missing required fields",
+        message: 'Missing required fields'
       },
       {
-        status: 400,
+        status: 400
       }
     );
   }
 
   data.push({
     clientName,
-    description,
-    quantity,
-    unitPrice,
-    createdAt: new Date(),
+    rows,
+    totalAmount,
+    createdAt: new Date()
   });
 
   return Response.json(
     {
       success: true,
-      message: "Success",
-      data,
+      message: 'Success',
+      data
     },
     {
-      status: 200,
+      status: 200
     }
   );
 }
