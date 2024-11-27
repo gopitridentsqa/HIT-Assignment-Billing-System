@@ -39,6 +39,8 @@ export default function TableWithPagination({
     setShowDeletePopup("");
   };
 
+  console.log("currentData",currentData);
+
   return (
     <div>
       <table className="table-auto border-collapse w-full border border-gray-300">

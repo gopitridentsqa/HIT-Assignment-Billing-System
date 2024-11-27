@@ -107,12 +107,14 @@ const Modal: React.FC<ModalProps> = ({ isOpen, setIsSubmitted, setIsOpen }) => {
       setIsLoading(true);
 
       invoiceSchema.parse({ ...data, rows });
-
-      await axios.post('/api/invoice', {
+      const payload = {
         clientName: data.clientName,
         rows,
         totalAmount: data.totalAmount
-      });
+      };
+      console.log('payload', payload);
+
+      await axios.post('/api/invoice', payload);
 
       setIsSubmitted(true);
       setIsOpen(false);
@@ -132,10 +134,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, setIsSubmitted, setIsOpen }) => {
     } finally {
       setIsLoading(false);
     }
-  }, [data, rows, setIsOpen, setIsSubmitted]);
+  }, [data]);
 
   if (!isOpen) return null;
-
 
   return (
     <div className="fixed inset-0 p-4 flex justify-center items-center z-50 bg-[rgba(0,0,0,0.5)] overflow-auto">
@@ -169,7 +170,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, setIsSubmitted, setIsOpen }) => {
 
           <div>
             <div className="grid grid-cols-12 gap-4">
-              <label className="block col-span-5 text-sm font-medium text-gray-700">
+              <label className="block col-span-4 md:col-span-5 text-sm font-medium text-gray-700">
                 Description
               </label>
 
@@ -177,17 +178,17 @@ const Modal: React.FC<ModalProps> = ({ isOpen, setIsSubmitted, setIsOpen }) => {
                 Quantity
               </label>
 
-              <label className="block col-span-3 text-sm font-medium text-gray-700">
+              <label className="block col-span-4 md:col-span-3 text-sm font-medium text-gray-700">
                 Unit Price
               </label>
 
-              <label className="block col-span-1 text-sm font-medium text-gray-700"></label>
+              <label className="block md:col-span-1 text-sm font-medium text-gray-700"></label>
             </div>
 
             {rows?.map((row, idx) => {
               return (
                 <div key={idx} className="grid grid-cols-12 gap-4 mt-3">
-                  <div className="col-span-5">
+                  <div className=" col-span-4 md:col-span-5">
                     <input
                       className="w-full p-2 border rounded-md"
                       value={row.description}
@@ -225,7 +226,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, setIsSubmitted, setIsOpen }) => {
                       </p>
                     )}
                   </div>
-                  <div className="col-span-1 flex items-center">
+                  <div className="col-span-1 mt-2">
                     <MdDelete
                       onClick={() =>
                         idx !== 0 &&
@@ -233,8 +234,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, setIsSubmitted, setIsOpen }) => {
                           prevState?.filter((_, i) => i !== idx)
                         )
                       }
-                      className={`rounded-full p-1 text-[27px] cursor-pointer ${idx !== 0 ? 'text-[#e6472c]' : 'text-gray-300'}`}
-                      />
+                      className={`rounded-full p-1 text-[27px] cursor-pointer ${
+                        idx !== 0 ? 'text-[#e6472c]' : 'text-gray-300'
+                      }`}
+                    />
                   </div>
                 </div>
               );
@@ -272,7 +275,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, setIsSubmitted, setIsOpen }) => {
           </button>
           <button
             className="bg-blue-600 text-white px-4 py-2 rounded-md disabled:bg-gray-400"
-            onClick={handleSubmit}
+            onClick={() => handleSubmit()}
             disabled={isLoading}>
             {isLoading ? 'Saving...' : 'Save'}
           </button>
